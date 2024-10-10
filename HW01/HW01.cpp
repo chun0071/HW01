@@ -2,29 +2,26 @@
 //
 
 #include <iostream>
+#include "Calculator.h"
 using namespace std;
-
-void printMultiplicationTable(int n)
-{
-    for (int i = 1; i <= n; i++)
-    {
-        for (int j = 1; j <= n; j++)
-        {
-            cout << i << "*" << j << "=" << i * j << "\t";
-        }
-        cout << endl;
-    }
-}
 
 int main()
 {
-    int n = 1;
-    cout << "請輸入乘法的大小: ";
-    cin >> n;
+    double x, y, result;
+    char oper;
 
-    printMultiplicationTable(n);
-
-    return 0;
+    Calculator c;
+    while (true)
+    {
+        char ch;
+        cout << "請輸入運算模式: ";
+        cin >> x >> oper >> y;
+        result = c.Calculate(x, oper, y);
+        cout << "Result: " << result << endl;
+        cout << "是否繼續? (y/n) ";
+        cin >> ch;
+        if (ch != 'y') break;
+    }
 }
 
 // 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
